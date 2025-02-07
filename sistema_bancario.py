@@ -23,16 +23,17 @@ while True: # O "True" é usado para definir a condição em que o "while" deve 
         if valor > 0:
             saldo += valor # O parâmetro "+=" e uma forma de agregação, nesse caso seria como se escrevêssimos "saldo = saldo + valor".
             extrato += f"Depósito: R$ {valor:.2f}\n" # Formatação de string, as estrutura dentro das {} se lê da seguinte maneira, "valor:", onde valor é a variável que traz um float, seguido de ".2f", onde o número 2 após
+            print("Operação realizada com sucesso!")
                                                      #o ponto indica o número de casas decimais que serão exibidos.   
         else:
             print("Operação falhou! O valor informado é inválido.")
 
-    elif opcao == "s":
+    elif opcao == "s": # Ao usar "elif" essa condição só entra em ação caso o "if" ou "elif" anterior não seja verdadeiro.
         valor = float(input("Informe o valor do saque: "))
 
         excedeu_saldo = valor > saldo
 
-        excedeu_limite = valor> limite
+        excedeu_limite = valor > limite
 
         excedeu_saques = numero_saques >= LIMITE_SAQUES
 
@@ -40,7 +41,7 @@ while True: # O "True" é usado para definir a condição em que o "while" deve 
             print("Operação falhou! Você não possui saldo suficiente.")
 
         elif excedeu_limite:
-            print("Operação falhou! O valor do saldo excede o limite.")
+            print("Operação falhou! O valor do saque excede o limite.")
 
         elif excedeu_saques:
             print("Operação falhou! Número máximo de saques excedidos.")
@@ -49,6 +50,7 @@ while True: # O "True" é usado para definir a condição em que o "while" deve 
             saldo -= valor
             extrato += f"Saque: R$ {valor:.2f}\n"
             numero_saques += 1
+            print("Operação realizada com sucesso!")
 
         else:
             print("Operação falhou! O valor informado é inválido")
@@ -60,7 +62,7 @@ while True: # O "True" é usado para definir a condição em que o "while" deve 
         print("=========================================")
 
     elif  opcao == "q":
-        break # Usado para para o laço de repetução "while"
+        break # Usado para parar o laço de repetição "while"
 
     else:
         print("Operação inválida! Por favor selecione novamente a operação desejada.")
